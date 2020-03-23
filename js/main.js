@@ -2,8 +2,6 @@ $(document).ready(function(){
 
 
 
-
-
     var cardTemplateSrc = $('#card-template').html();
     var cardTemplate = Handlebars.compile(cardTemplateSrc);
 
@@ -53,23 +51,15 @@ $(document).ready(function(){
                 titolo: movie.title,
                 titoloOriginale: movie.original_title,
                 linguaOriginale: movie.original_language,
-                voto: stars(movie.vote_average),
+                voto: movie.vote_average,
+                stelle: stars(movie.vote_average),
                 poster: movie.poster_path,
-
+                Flag: bandiere(movie.original_language),
             };
             var movieCard = cardTemplate(infos);
             $('#risultato').append(movieCard);
         }
     }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -119,44 +109,70 @@ $(document).ready(function(){
 
 
 
+    function bandiere(Stato) {
+         var bandiera = Stato;
+         if (Stato == 'ja') {
+              bandiera = 'jp';
+         } else if (Stato == 'en'){
+             bandiera = 'us';
+         }
+         return bandiera;
+    };
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    function stars(vote) {
-        console.log(vote);
-        var star = '';
-        if (vote < 2) {
-            console.log('na stella');
-        } else if (vote < 4) {
-            console.log('du stelle');
-        } else if (vote < 6) {
-            console.log('tre stelle');
-        } else if (vote < 8) {
-            console.log('quattro stelle');
-
-            star + '<i class="fas fa-star"></i>'
-        } else if (vote < 10) {
-            console.log('cinque stelle');
+    function stars(vote){
+        vote = Math.ceil(vote/ 2);
+        var stringaStelle = '';
+        for (var i = 1; i <= 5; i++) {
+            if (i <= vote) {
+                stringaStelle += '<i class="fas fa-star"></i>'
+            } else {
+                stringaStelle += '<i class="far fa-star"></i>'
+            }
         }
 
 
+
+
+
+        return stringaStelle;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // function stars(vote) {
+    //     console.log(vote);
+    //     var star = '';
+    //     if (vote < 2) {
+    //         console.log('na stella');
+    //     } else if (vote < 4) {
+    //         console.log('du stelle');
+    //     } else if (vote < 6) {
+    //         console.log('tre stelle');
+    //     } else if (vote < 8) {
+    //         console.log('quattro stelle');
+    //
+    //         star + '<i class="fas fa-star"></i>'
+    //     } else if (vote < 10) {
+    //         console.log('cinque stelle');
+    //     }
+    //
+    //
+    // }
 });
