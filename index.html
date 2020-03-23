@@ -9,16 +9,19 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     <body>
-        <h1>Ricerca film</h1>
-        <input id="nome"placeholder="scrivi il nome del film">
-        <button id="invia">INVIA</button>
 
-
-        <div id="risultato">
-
+        <div class="header container-flex">
+            <img src="https://www.money.it/local/cache-gd2/70/1ed0530de947223093d5dce3c5581f.png?1584672446" alt="">
+            <input id="nome"placeholder="scrivi il nome del film">
+            <button id="invia">INVIA</button>
         </div>
-        <div id="tvshow">
+        <div class="main">
+            <div id="risultato">
 
+            </div>
+            <div id="tvshow">
+
+            </div>
         </div>
 
 
@@ -30,7 +33,6 @@
             <p>Titolo Originale: {{titoloOriginale}}</p>
             <p>Lingua Originale: {{linguaOriginale}}</p>
             <span>voto: {{voto}} {{{stelle}}}</span>
-            <p>Poster: {{poster}}</p>
             <img src="https://image.tmdb.org/t/p/w185{{poster}}" alt="">
             <div class="bandiera"><img src="https://www.countryflags.io/{{Flag}}/flat/64.png"></div>
         </script>
@@ -40,8 +42,8 @@
             <p>Titolo: {{titolo}}</p>
             <p>Titolo Originale: {{titoloOriginale}}</p>
             <p>Lingua Originale: {{lingua}}</p>
-            <span>voto: {{voto}}</span>
-            <p>Poster: {{poster}}</p>
+            <span>voto: {{voto}} {{{stelle}}}</span>
+            <img src="https://image.tmdb.org/t/p/w185{{poster}}" alt="">
         </script>
 
 

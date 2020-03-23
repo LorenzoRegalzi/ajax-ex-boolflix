@@ -97,6 +97,7 @@ $(document).ready(function(){
                 titolo: serie.name,
                 titoloOriginale: serie.original_name,
                 lingua: serie.original_language,
+                stelle: stars(serie.vote_average),
                 voto:  serie.vote_average,
             };
             var serieCard = cardSerie(info);
