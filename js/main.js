@@ -1,9 +1,12 @@
 $(document).ready(function(){
 
-
+    var imgBaseUrl ='https://image.tmdb.org/t/p/';
+    var imgSize ='w185';
 
     var cardTemplateSrc = $('#card-template').html();
     var cardTemplate = Handlebars.compile(cardTemplateSrc);
+
+
 
     $('#invia').click(cerca);
     $('#nome').keypress(function (event) {
@@ -11,6 +14,7 @@ $(document).ready(function(){
             cerca();
         }
     });
+
 
     function cerca() {
             var nomeInput = $('#nome').val();
@@ -53,7 +57,7 @@ $(document).ready(function(){
                 linguaOriginale: movie.original_language,
                 voto: movie.vote_average,
                 stelle: stars(movie.vote_average),
-                poster: movie.poster_path,
+                poster: poster(movie.poster_path),
                 Flag: bandiere(movie.original_language),
             };
             var movieCard = cardTemplate(infos);
@@ -93,7 +97,7 @@ $(document).ready(function(){
         for (var i = 0; i < series.length; i++) {
             var serie = series[i];
             var info = {
-                poster: serie.poster_path,
+                poster: poster(serie.poster_path),
                 titolo: serie.name,
                 titoloOriginale: serie.original_name,
                 lingua: serie.original_language,
@@ -133,15 +137,17 @@ $(document).ready(function(){
                 stringaStelle += '<i class="far fa-star"></i>'
             }
         }
-
-
-
-
-
         return stringaStelle;
     }
 
 
+    function poster(path){
+        if (path !== null) {
+            return imgBaseUrl + imgSize + path;
+        } else {
+            return 'https://lascrucesfilmfest.com/wp-content/uploads/2018/01/no-poster-available.jpg';
+        }
+    }
 
 
 

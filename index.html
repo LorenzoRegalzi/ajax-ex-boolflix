@@ -15,10 +15,12 @@
             <input id="nome"placeholder="scrivi il nome del film">
             <button id="invia">INVIA</button>
         </div>
-        <div class="main">
+        <div class="main container-flex">
             <div id="risultato">
 
             </div>
+            <hr>
+            <hr>
             <div id="tvshow">
 
             </div>
@@ -29,25 +31,46 @@
 
 
         <script id="card-template" type="text/x-handlebars-template">
-            <p>Titolo: {{titolo}}</p>
-            <p>Titolo Originale: {{titoloOriginale}}</p>
-            <p>Lingua Originale: {{linguaOriginale}}</p>
-            <span>voto: {{voto}} {{{stelle}}}</span>
-            <img src="https://image.tmdb.org/t/p/w185{{poster}}" alt="">
-            <div class="bandiera"><img src="https://www.countryflags.io/{{Flag}}/flat/64.png"></div>
+            <div class="locandina">
+                <div class="testo">
+                    <p>{{titolo}}</p>
+                    <p id="stelle">voto:{{{stelle}}}</p>
+                    <img id="bandiera"src="https://www.countryflags.io/{{Flag}}/flat/64.png">
+                </div>
+                <div class="poster">
+                    <img id="immagine"src="{{poster}}" alt="">
+                </div>
+            </div>
         </script>
+
+        <!-- https://image.tmdb.org/t/p/w185 -->
+        <!-- <img id="immagine"src="https://image.tmdb.org/t/p/w185{{poster}}" alt="">
+        <p>{{titolo}}</p> -->
+        <!-- <p>Titolo Originale: {{titoloOriginale}}</p> -->
+        <!-- <p>{{linguaOriginale}}</p> -->
+        <!-- <span>voto: {{voto}} {{{stelle}}}</span>
+        <img id="bandiera"src="https://www.countryflags.io/{{Flag}}/flat/64.png"> --> -->
+
+
+
+
 
 
         <script id="serie-template" type="text/x-handlebars-template">
-            <p>Titolo: {{titolo}}</p>
-            <p>Titolo Originale: {{titoloOriginale}}</p>
-            <p>Lingua Originale: {{lingua}}</p>
-            <span>voto: {{voto}} {{{stelle}}}</span>
-            <img src="https://image.tmdb.org/t/p/w185{{poster}}" alt="">
+            <div class="locandina">
+                <div class="testo">
+                    <p>Titolo: {{titolo}}</p>
+                    <p>voto: {{{stelle}}}</p>
+                </div>
+                <div class="poster">
+                    <img id="immagine"src="{{poster}}" alt="">
+                </div>
+            </div>
         </script>
 
-
-
+        <!-- <span>voto: {{voto}} {{{stelle}}}</span> -->
+        <!-- <p>Titolo Originale: {{titoloOriginale}}</p> -->
+        <!-- <p>Lingua Originale: {{lingua}}</p> -->
         <script src="js/main.js" charset="utf-8"></script>
     </body>
 </html>
